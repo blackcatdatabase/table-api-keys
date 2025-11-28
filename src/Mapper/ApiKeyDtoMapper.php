@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class ApiKeyDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'tenant_id' => 'tenantId', 'user_id' => 'userId', 'name_ci' => 'nameCi', 'token_hash' => 'tokenHash', 'token_hash_key_version' => 'tokenHashKeyVersion', 'last_used_at' => 'lastUsedAt', 'expires_at' => 'expiresAt', 'created_at' => 'createdAt', 'updated_at' => 'updatedAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'tenant_id' => 'tenantId', 'user_id' => 'userId', 'name' => 'name', 'name_ci' => 'nameCi', 'token_hash' => 'tokenHash', 'token_hash_key_version' => 'tokenHashKeyVersion', 'scopes' => 'scopes', 'status' => 'status', 'last_used_at' => 'lastUsedAt', 'expires_at' => 'expiresAt', 'created_at' => 'createdAt', 'updated_at' => 'updatedAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
