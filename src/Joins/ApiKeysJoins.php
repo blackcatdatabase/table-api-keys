@@ -38,22 +38,22 @@ final class ApiKeysJoins {
 
 
     /**
-     * FK: api_keys -> tenants
-     * LEFT JOIN vw_tenants AS $as ON $as.id = $alias.tenant_id
-     * @return array{0:string,1:array<string,mixed>}
-     */
-    public function joinTenants(string $alias = 't', string $as = 'j0'): array {
-        [$alias, $as] = $this->assertAliasPair($alias, $as);
-        return [' LEFT JOIN vw_tenants AS ' . $as . ' ON ' . $as . '.id = ' . $alias . '.tenant_id' . ' ', []];
-    }
-    /**
      * FK: api_keys -> users
      * LEFT JOIN vw_users AS $as ON $as.id = $alias.user_id
      * @return array{0:string,1:array<string,mixed>}
      */
-    public function joinUsers(string $alias = 't', string $as = 'j1'): array {
+    public function joinUsers(string $alias = 't', string $as = 'j0'): array {
         [$alias, $as] = $this->assertAliasPair($alias, $as);
         return [' LEFT JOIN vw_users AS ' . $as . ' ON ' . $as . '.id = ' . $alias . '.user_id' . ' ', []];
+    }
+    /**
+     * FK: api_keys -> tenants
+     * LEFT JOIN vw_tenants AS $as ON $as.id = $alias.tenant_id
+     * @return array{0:string,1:array<string,mixed>}
+     */
+    public function joinTenants(string $alias = 't', string $as = 'j1'): array {
+        [$alias, $as] = $this->assertAliasPair($alias, $as);
+        return [' LEFT JOIN vw_tenants AS ' . $as . ' ON ' . $as . '.id = ' . $alias . '.tenant_id' . ' ', []];
     }
 
 }

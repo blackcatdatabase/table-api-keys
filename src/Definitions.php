@@ -89,7 +89,7 @@ final class Definitions {
      * identity | uuid | natural | composite
      */
     public static function pkStrategy(): string {
-        $c = trim('natural');
+        $c = trim('identity');
         return $c !== '' ? $c : 'natural';
     }
 

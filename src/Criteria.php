@@ -38,7 +38,7 @@ final class Criteria extends BaseCriteria
     /** Columns used for full-text LIKE/ILIKE searches. */
     protected function searchable(): array
     {
-        return [ 'name', 'name_ci', 'token_hash_key_version', 'status' ];
+        return [ 'name', 'name_ci', 'token_hash_key_version' ];
     }
 
 /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
@@ -54,7 +54,7 @@ protected function sortable(): array
     protected function joinable(): array
     {
         /** @var array<string,string> */
-        return [ 'tenants' => 'j0', 'users' => 'j1' ];
+        return [ 'users' => 'j0', 'tenants' => 'j1' ];
     }
 
     /** Default page size for this repository. */
