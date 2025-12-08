@@ -5,19 +5,19 @@ Tenant/user scoped API tokens stored only as hashed secrets.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| created_at |  | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| expires_at |  | YES |  | Optional expiration timestamp. |
-| id |  | NO |  | Surrogate primary key. |
-| last_used_at |  | YES |  | Last usage timestamp (UTC). |
-| name |  | NO |  | Human-friendly token label. |
-| name_ci |  | YES |  | Case-insensitive token label (generated). |
-| scopes |  | NO | []'::jsonb | JSON array with granted scopes. |
-| status |  | NO | active | Lifecycle status flag. (enum: active, revoked, disabled) |
-| tenant_id |  | NO |  | Owning tenant (FK tenants.id). |
-| token_hash |  | NO |  | Hashed token payload. |
+| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| expires_at | DATETIME(6) | YES |  | Optional expiration timestamp. |
+| id | BIGINT | NO |  | Surrogate primary key. |
+| last_used_at | DATETIME(6) | YES |  | Last usage timestamp (UTC). |
+| name | VARCHAR(120) | NO |  | Human-friendly token label. |
+| name_ci | VARCHAR(120) | YES |  | Case-insensitive token label (generated). |
+| scopes | JSON | NO |  | JSON array with granted scopes. |
+| status | ENUM('active','revoked','disabled') | NO | active | Lifecycle status flag. (enum: active, revoked, disabled) |
+| tenant_id | BIGINT | NO |  | Owning tenant (FK tenants.id). |
+| token_hash | BINARY(32) | NO |  | Hashed token payload. |
 | token_hash_key_version | VARCHAR(64) | NO |  | Key version used when hashing the token. |
-| updated_at |  | YES |  | Last update timestamp (UTC). |
-| user_id |  | YES |  | User that created the token (FK users.id), optional. |
+| updated_at | DATETIME(6) | YES |  | Last update timestamp (UTC). |
+| user_id | BIGINT | YES |  | User that created the token (FK users.id), optional. |
 
 ## Engine Details
 
@@ -74,5 +74,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_api_keys | mysql | algorithm=MERGE, security=INVOKER | [packages\api-keys\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/api-keys/schema/040_views.mysql.sql) |
-| vw_api_keys | postgres |  | [packages\api-keys\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/api-keys/schema/040_views.postgres.sql) |
+| vw_api_keys | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_api_keys | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
