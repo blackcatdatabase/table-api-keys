@@ -3,6 +3,7 @@
 ### Unreleased (up to HEAD)
 
 #### Chore
+- 2025-12-09: Customization of ERD, AUDIT, LF normalization — @[71a10fa]
 - 2025-12-09: Debugged scripts, regenerated .md, edited README — @[0cfd18a]
 - 2025-12-08: Refactored scripts, cleanup — @[359e924]
 - 2025-12-07: Refactorized build def script, added safety checks for err in schemes — @[401acae]
