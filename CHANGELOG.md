@@ -3,6 +3,8 @@
 ### Unreleased (up to HEAD)
 
 #### Chore
+- 2025-12-09: fixed LF LEGAL.md — @[4bf4fa9]
+- 2025-12-09: Further debugging and ERD optimalization 1/* — @[6aa9154]
 - 2025-12-09: Customization of ERD, AUDIT, LF normalization — @[71a10fa]
 - 2025-12-09: Debugged scripts, regenerated .md, edited README — @[0cfd18a]
 - 2025-12-08: Refactored scripts, cleanup — @[359e924]

@@ -11,7 +11,7 @@ Tenant/user scoped API tokens stored only as hashed secrets.
 | last_used_at | DATETIME(6) | YES |  | Last usage timestamp (UTC). |
 | name | VARCHAR(120) | NO |  | Human-friendly token label. |
 | name_ci | VARCHAR(120) | YES |  | Case-insensitive token label (generated). |
-| scopes | JSON | NO |  | JSON array with granted scopes. |
+| scopes | JSON | NO | []'::jsonb | JSON array with granted scopes. |
 | status | ENUM('active','revoked','disabled') | NO | active | Lifecycle status flag. (enum: active, revoked, disabled) |
 | tenant_id | BIGINT | NO |  | Owning tenant (FK tenants.id). |
 | token_hash | BINARY(32) | NO |  | Hashed token payload. |

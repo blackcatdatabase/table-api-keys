@@ -99,6 +99,7 @@ _No engine differences detected._
 
 ## Constraints Snapshot
 - `created_at` – default=CURRENT_TIMESTAMP(6)
+- `scopes` – default=[]'::jsonb
 - `status` – default=active, enum
 
 ## Schema Files
