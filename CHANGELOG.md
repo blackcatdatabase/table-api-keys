@@ -3,6 +3,8 @@
 ### Unreleased (up to HEAD)
 
 #### Chore
+- 2025-12-10: Fixed definitions.md path — @[fe7e737]
+- 2025-12-10: Builddefinitions now shows both types — @[3327b9d]
 - 2025-12-09: fixed LF LEGAL.md — @[4bf4fa9]
 - 2025-12-09: Further debugging and ERD optimalization 1/* — @[6aa9154]
 - 2025-12-09: Customization of ERD, AUDIT, LF normalization — @[71a10fa]
