@@ -3,21 +3,21 @@
 Tenant/user scoped API tokens stored only as hashed secrets.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| tenant_id | BIGINT | NO |  | Owning tenant (FK tenants.id). |
-| user_id | BIGINT | YES |  | User that created the token (FK users.id), optional. |
-| name | VARCHAR(120) | NO |  | Human-friendly token label. |
-| name_ci | VARCHAR(120) | YES |  | Case-insensitive token label (generated). |
-| token_hash | BINARY(32) | NO |  | Hashed token payload. |
-| token_hash_key_version | VARCHAR(64) | NO |  | Key version used when hashing the token. |
-| scopes | JSON | NO | []'::jsonb | JSON array with granted scopes. |
-| status | ENUM('active','revoked','disabled') | NO | active | Lifecycle status flag. (enum: active, revoked, disabled) |
-| last_used_at | DATETIME(6) | YES |  | Last usage timestamp (UTC). |
-| expires_at | DATETIME(6) | YES |  | Optional expiration timestamp. |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| updated_at | DATETIME(6) | YES |  | Last update timestamp (UTC). |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | mysql: BIGINT | NO |  | Surrogate primary key. |  |
+| tenant_id | mysql: BIGINT | NO |  | Owning tenant (FK tenants.id). |  |
+| user_id | mysql: BIGINT | YES |  | User that created the token (FK users.id), optional. |  |
+| name | mysql: VARCHAR(120) | NO |  | Human-friendly token label. |  |
+| name_ci | mysql: VARCHAR(120) | YES |  | Case-insensitive token label (generated). |  |
+| token_hash | mysql: BINARY(32) | NO |  | Hashed token payload. | `hmac`<br/>ctx: `db.hmac.api_keys.token_hash`<br/>kv: `token_hash_key_version` |
+| token_hash_key_version | VARCHAR(64) | NO |  | Key version used when hashing the token. | key version for: `token_hash` |
+| scopes | mysql: JSON | NO | postgres: []'::jsonb | JSON array with granted scopes. |  |
+| status | mysql: ENUM('active','revoked','disabled') | NO | active | Lifecycle status flag. (enum: active, revoked, disabled) |  |
+| last_used_at | mysql: DATETIME(6) | YES |  | Last usage timestamp (UTC). |  |
+| expires_at | mysql: DATETIME(6) | YES |  | Optional expiration timestamp. |  |
+| created_at | mysql: DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |
+| updated_at | mysql: DATETIME(6) | YES |  | Last update timestamp (UTC). |  |
 
 ## Engine Details
 
