@@ -1,0 +1,50 @@
+{
+  "tables": {
+    "api_keys": {
+      "columns": {
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "expires_at": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "last_used_at": {
+          "strategy": "passthrough"
+        },
+        "name": {
+          "strategy": "passthrough"
+        },
+        "name_ci": {
+          "strategy": "passthrough"
+        },
+        "scopes": {
+          "strategy": "passthrough"
+        },
+        "status": {
+          "strategy": "passthrough"
+        },
+        "tenant_id": {
+          "strategy": "passthrough"
+        },
+        "token_hash": {
+          "context": "db.hmac.api_keys.token_hash",
+          "key_version_column": "token_hash_key_version",
+          "strategy": "hmac",
+          "write_key_version": true
+        },
+        "token_hash_key_version": {
+          "strategy": "passthrough"
+        },
+        "updated_at": {
+          "strategy": "passthrough"
+        },
+        "user_id": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}

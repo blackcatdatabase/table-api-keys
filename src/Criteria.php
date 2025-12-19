@@ -41,11 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'name', 'name_ci', 'token_hash_key_version' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'id', 'tenant_id', 'user_id', 'name', 'name_ci', 'token_hash_key_version', 'status', 'last_used_at', 'expires_at', 'created_at', 'updated_at' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'id', 'tenant_id', 'user_id', 'name', 'name_ci', 'token_hash_key_version', 'status', 'last_used_at', 'expires_at', 'created_at', 'updated_at' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):
